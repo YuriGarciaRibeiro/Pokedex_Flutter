@@ -1,6 +1,7 @@
 // ignore_for_file: missing_return
 
 import 'package:flutter/material.dart';
+import 'screens/pokemon_screen.dart';
 import 'utils/routes/routes.dart';
 import 'screens/pokedex_screen.dart';
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         ROUTES.HOME: (ctx) => PokedexScreen(),
+        ROUTES.POKEMON_SCREEN: (ctx) => PokemonScreen(),
       },
     );
   }

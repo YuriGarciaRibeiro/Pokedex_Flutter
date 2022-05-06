@@ -1,15 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokebal_icon.dart';
 import 'package:pokedex/components/pokemon_list.dart';
 
-
 class PokedexScreen extends StatelessWidget {
-  
-  
-
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +11,7 @@ class PokedexScreen extends StatelessWidget {
           'Pokedex',
         ),
       ),
-      body: PokemonList(
-      ),
+      body: PokemonList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: PokeballIcon(),

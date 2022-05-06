@@ -1,4 +1,5 @@
-import '../models/Pokemon.dart';
+
+import '../models/pokemon_model.dart';
 
 var POKEMONS_DATA = [
   Pokemon(

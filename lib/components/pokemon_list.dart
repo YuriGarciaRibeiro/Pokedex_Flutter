@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_card.dart';
 import 'package:pokedex/data/Pokemons.dart';
 
-import 'pokebal_icon.dart';
+
+
 
 class PokemonList extends StatelessWidget {
   final pokemonsList = POKEMONS_DATA;
