@@ -18,7 +18,7 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 5,
-        color: Theme.of(context).colorScheme.primary,
+        color: list[index].color ?? Colors.red,
         child: ListTile(
           onTap: () => _selectPokemon(context),
           leading: Text(

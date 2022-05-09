@@ -6,7 +6,10 @@ import 'package:pokedex/data/Pokemons.dart';
 
 
 class PokemonList extends StatelessWidget {
-  final pokemonsList = POKEMONS_DATA;
+  List pokemonsList;
+
+
+  PokemonList({this.pokemonsList});
 
   @override
   Widget build(BuildContext context) {
