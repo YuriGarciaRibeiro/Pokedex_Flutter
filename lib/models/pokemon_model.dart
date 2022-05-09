@@ -1,7 +1,5 @@
 // ignore_for_file: avoid_init_to_null
 
-import 'package:flutter/material.dart';
-
 class Pokemon {
   int id;
   String name;
@@ -16,7 +14,6 @@ class Pokemon {
   int speed;
   String generation;
   bool legendary;
-  Color color;
 
   Pokemon({
     this.id,
@@ -32,6 +29,5 @@ class Pokemon {
     this.speed,
     this.generation,
     this.legendary,
-    this.color,
   });
 }
