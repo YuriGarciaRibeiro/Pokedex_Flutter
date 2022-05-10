@@ -1,20 +1,45 @@
 // ignore_for_file: missing_return
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'screens/pokemon_screen.dart';
 import 'utils/routes/routes.dart';
 import 'screens/pokedex_screen.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    changeStatusBarColor(Colors.white);
+  }
+
+  changeStatusBarColor(Color color) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: color,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DeliMeals',
+      title: 'Pokedex',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
-            .copyWith(secondary: Colors.white),
+        appBarTheme: const AppBarTheme(
+            color: Colors.white,
+            titleTextStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontFamily: "RobotoCondensed",
+            )),
         fontFamily: "Raleway",
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: const TextStyle(

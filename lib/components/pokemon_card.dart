@@ -18,15 +18,18 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 5,
-        color: Theme.of(context).colorScheme.primary,
+        color: list[index].color ?? Theme.of(context).colorScheme.primary,
         child: ListTile(
           onTap: () => _selectPokemon(context),
-          leading: Text(
-            (list[index].id).toString(),
-            style: const TextStyle(color: Colors.white),
+          leading: Image.network(
+            list[index].image ??
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/750px-Black_flag.svg.png',
+            fit: BoxFit.fill,
+            width: 50,
+            height: 50,
           ),
           title: Text(
-            list[index].name,
+            '#${(list[index].id)} ${list[index].name}',
             style: const TextStyle(color: Colors.white),
           ),
           subtitle: Text(
