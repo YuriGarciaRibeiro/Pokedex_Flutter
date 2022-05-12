@@ -223,7 +223,7 @@ class BarChartSample3State extends State<BarChartSample3> {
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-        color: const Color(0xff2c4260),
+        color: selectPokemon.color,
         child: _BarChart(
           hp: selectPokemon.hp,
           attack: selectPokemon.attack,

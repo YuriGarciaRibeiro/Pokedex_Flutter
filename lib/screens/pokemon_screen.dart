@@ -9,18 +9,11 @@ class PokemonScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        leadingWidth: 30,
+        backgroundColor: selectPokemon.color,
         title: Container(
-          color: Colors.red,
-  
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.network(selectPokemon.image),
               Text(selectPokemon.name),
             ],
           ),

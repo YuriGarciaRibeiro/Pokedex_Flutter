@@ -12,7 +12,7 @@ class StatusChart extends StatelessWidget {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(10),
       ),
       color: selectPokemon.color,
       child: Padding(
