@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/components/type_icon.dart';
 import 'package:pokedex/utils/routes/routes.dart';
-
 import 'pokebal_icon.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'type_icon.dart';
 
 class PokemonCard extends StatelessWidget {
   final List list;
@@ -16,29 +18,49 @@ class PokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return InkWell(
+      onTap: () => _selectPokemon(context),
+      borderRadius: BorderRadius.circular(10),
+      splashColor: list[index].color,
+      hoverColor: Colors.transparent,
+    
+      child: Card(
         elevation: 5,
         color: list[index].color ?? Theme.of(context).colorScheme.primary,
-        child: ListTile(
-          onTap: () => _selectPokemon(context),
-          leading: Image.network(
-            list[index].image ??
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/750px-Black_flag.svg.png',
-            fit: BoxFit.fill,
-            width: 50,
-            height: 50,
+        child: GridTile(
+          child: Image.network(
+            list[index].image,
           ),
-          title: Text(
-            '#${(list[index].id)} ${list[index].name}',
-            style: const TextStyle(color: Colors.white),
+          footer: GridTileBar(
+            backgroundColor: Colors.black54,
+            title: AutoSizeText(
+              list[index].name,
+              maxLines: 1,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 1,
+                fontFamily: "RobotoCondensed",
+              ),
+            ),
+            subtitle: AutoSizeText(
+              list[index].type2 != ''
+                  ? list[index].type + '|' + list[index].type2
+                  : list[index].type.toString(),
+              maxLines: 1,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontFamily: "RobotoCondensed",
+              ),
+            ),
+            trailing: IconButton(
+              icon: TypeIcon(pokemon: list[index],),
+              
+              onPressed: () => _selectPokemon(context),
+              )
+            ),
           ),
-          subtitle: Text(
-            list[index].type2 == ''
-                ? list[index].type
-                : list[index].type + ' | ' + list[index].type2,
-            style: const TextStyle(color: Colors.white),
-          ),
-          trailing: PokeballIcon(),
-        ));
+        ),
+      );
   }
 }

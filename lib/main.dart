@@ -17,7 +17,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    changeStatusBarColor(Colors.white);
   }
 
   changeStatusBarColor(Color color) {
@@ -33,8 +32,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Pokedex',
       theme: ThemeData(
+        
         appBarTheme: const AppBarTheme(
-            color: Colors.white,
+            
             titleTextStyle: TextStyle(
               color: Colors.black,
               fontSize: 20,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/pokemon_model.dart';
+import '../components/status_chart.dart';
 
 class PokemonScreen extends StatelessWidget {
   @override
@@ -7,30 +8,56 @@ class PokemonScreen extends StatelessWidget {
     final Pokemon selectPokemon = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(selectPokemon.name),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop(),
         ),
-        body: Row(
-          children: <Widget>[
-            Column(children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Text(
-                    selectPokemon.name,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    selectPokemon.id.toString(),
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
+        leadingWidth: 30,
+        title: Container(
+          color: Colors.red,
+  
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image.network(selectPokemon.image),
+              Text(selectPokemon.name),
+            ],
+          ),
+          
+        ),
+      ),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Image.network(selectPokemon.image),
+              Container(
+                padding: EdgeInsets.all(10),
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Name: ${selectPokemon.name}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    Text(
+                      'Type: ${selectPokemon.type2 == '' ? selectPokemon.type : selectPokemon.type + ' | ' + selectPokemon.type2}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    StatusChart(selectPokemon: selectPokemon),
+                  ],
+                ),
               ),
-              Text(selectPokemon.type),
-            ])
-          ],
-        ));
+        
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
