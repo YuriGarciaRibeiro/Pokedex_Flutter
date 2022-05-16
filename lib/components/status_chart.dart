@@ -9,16 +9,9 @@ class StatusChart extends StatelessWidget {
   StatusChart({this.selectPokemon});
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      color: selectPokemon.color,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 16),
-        child: BarChartSample3(selectPokemon: selectPokemon,),
-      ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 16),
+      child: BarChartSample3(selectPokemon: selectPokemon,),
     );
   }
 }

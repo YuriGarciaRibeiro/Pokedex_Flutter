@@ -17,7 +17,6 @@ class PokemonScreen extends StatelessWidget {
               Text(selectPokemon.name),
             ],
           ),
-          
         ),
       ),
       body: SizedBox(
@@ -42,11 +41,28 @@ class PokemonScreen extends StatelessWidget {
                       style: const TextStyle(fontSize: 20),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    Text(
+                      'Generation: ${selectPokemon.generation}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: const [
+                        Text(
+                          'Status',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                     StatusChart(selectPokemon: selectPokemon),
                   ],
                 ),
               ),
-        
             ],
           ),
         ),

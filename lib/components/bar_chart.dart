@@ -10,6 +10,7 @@ class _BarChart extends StatelessWidget {
   final int specialAttack;
   final int specialDefense;
   final int total;
+  final Color color;
 
   _BarChart({
     this.hp,
@@ -19,6 +20,7 @@ class _BarChart extends StatelessWidget {
     this.specialAttack,
     this.specialDefense,
     this.total,
+    this.color,
   });
 
   @override
@@ -31,7 +33,7 @@ class _BarChart extends StatelessWidget {
         barGroups: barGroups,
         gridData: FlGridData(show: false),
         alignment: BarChartAlignment.spaceAround,
-        maxY: 1000,
+        maxY: 500,
       ),
     );
   }
@@ -51,7 +53,7 @@ class _BarChart extends StatelessWidget {
             return BarTooltipItem(
               rod.toY.round().toString(),
               const TextStyle(
-                color: Colors.white,
+                color: Color(0xff7589a2),
                 fontWeight: FontWeight.bold,
               ),
             );
@@ -223,7 +225,7 @@ class BarChartSample3State extends State<BarChartSample3> {
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-        color: selectPokemon.color,
+        color: Colors.white,
         child: _BarChart(
           hp: selectPokemon.hp,
           attack: selectPokemon.attack,
@@ -232,6 +234,7 @@ class BarChartSample3State extends State<BarChartSample3> {
           specialAttack: selectPokemon.spAttack,
           specialDefense: selectPokemon.spDefense,
           total: selectPokemon.total,
+          color: selectPokemon.color,
         ),
       ),
     );
