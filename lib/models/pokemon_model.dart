@@ -19,21 +19,23 @@ class Pokemon {
   Color color;
   String image;
 
+
+
   Pokemon({
-    this.id,
-    this.name,
-    this.type,
-    this.type2 = null,
-    this.total,
-    this.hp,
-    this.attack,
-    this.defense,
-    this.spAttack,
-    this.spDefense,
-    this.speed,
-    this.generation,
-    this.legendary,
-    this.color,
-    this.image,
+     this.id = 0,
+     this.name = '',
+     this.type = '',
+    this.type2 = '',
+     this.total = 0,
+     this.hp = 0,
+     this.attack  = 0,
+     this.defense = 0,
+     this.spAttack = 0,
+     this.spDefense = 0,
+     this.speed = 0,
+     this.generation = '',
+     this.legendary = false,
+     this.color = Colors.white,
+     this.image = '',
   });
 }

@@ -5,7 +5,7 @@ import 'package:pokedex/models/pokemon_model.dart';
 class TypeIcon extends StatelessWidget {
   Pokemon pokemon;
 
-  TypeIcon({this.pokemon});
+  TypeIcon({required this.pokemon} );
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +64,9 @@ class TypeIcon extends StatelessWidget {
     }
     if (pokemon.type == 'Dragon') {
       icone = Icons.catching_pokemon;
+    }
+    else {
+      icone = Icons.error;
     }
 
 
