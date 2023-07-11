@@ -1,42 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/components/pokebal_icon.dart';
 import 'package:pokedex/components/pokemon_list.dart';
 
+import '../components/PersonDrawer.dart';
+import '../components/pokebal_icon.dart';
+
 class PokedexScreen extends StatelessWidget {
+  const PokedexScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: const [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
-              child: Text(
-                'Pokedex',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Items'),
-              subtitle: Text('Coming soon'),
-
-            ),
-            ListTile(
-              title: Text('Moves'),
-              subtitle: Text('Coming soon'),
-            ),
-            ListTile(
-              title: Text('Berries'),
-              subtitle: Text('Coming soon'),
-            ),
-          ],
-        ),
-      ),
+      drawer: const PersonDrawer(),
       appBar: AppBar(
         title: const Text(
           'Pokedex',
@@ -44,11 +18,11 @@ class PokedexScreen extends StatelessWidget {
         centerTitle: true,
 
       ),
-      body: PokemonList(),
+      body: const PokemonList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: PokeballIcon(),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        child: const PokeballIcon(),
       ),
     );
   }

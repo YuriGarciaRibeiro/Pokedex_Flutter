@@ -8,7 +8,7 @@ import 'package:pokedex/Funcs/ColorExtract.dart';
 class PokemonCard extends StatefulWidget {
   int index;
 
-  PokemonCard({required this.index});
+  PokemonCard({Key? key, required this.index}) : super(key: key);
 
   @override
   State<PokemonCard> createState() => _PokemonCardState();
@@ -74,8 +74,8 @@ class _PokemonCardState extends State<PokemonCard> {
                                 fontFamily: "RobotoCondensed",
                               ),
                             ),
-                            trailing: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            trailing: const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: PokeballIcon(),
                             ),
                           ),

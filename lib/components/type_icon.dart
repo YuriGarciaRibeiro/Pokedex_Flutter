@@ -5,7 +5,7 @@ import 'package:pokedex/models/pokemon_model.dart';
 class TypeIcon extends StatelessWidget {
   Pokemon pokemon;
 
-  TypeIcon({required this.pokemon} );
+  TypeIcon({Key? key, required this.pokemon} ) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

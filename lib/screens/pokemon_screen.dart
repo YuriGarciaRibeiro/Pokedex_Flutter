@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../models/pokemon_model.dart';
-import '../components/status_chart.dart';
 import 'package:pokedex/Control/RequestPokemon.dart';
+import 'package:pokedex/components/PersonDrawer.dart';
 
 class PokemonScreen extends StatefulWidget {
+  const PokemonScreen({Key? key}) : super(key: key);
+
   @override
   State<PokemonScreen> createState() => _PokemonScreenState();
 }
@@ -27,22 +28,21 @@ class _PokemonScreenState extends State<PokemonScreen> {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.red,
-              title: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      snapshot.data!["name"].toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontFamily: "RobotoCondensed",
-                      ),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    snapshot.data!["name"].toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "RobotoCondensed",
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
+            drawer: const PersonDrawer(),
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: SingleChildScrollView(
@@ -50,7 +50,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
                   children: <Widget>[
 
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       width: MediaQuery.of(context).size.width,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,7 +91,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
 
         }
         else{
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }

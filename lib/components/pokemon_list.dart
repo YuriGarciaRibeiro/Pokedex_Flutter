@@ -1,11 +1,11 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_card.dart';
-import 'package:pokedex/data/Pokemons.dart';
 import 'package:pokedex/Control/RequestPokemon.dart';
 
 class PokemonList extends StatefulWidget {
+  const PokemonList({Key? key}) : super(key: key);
+
   @override
   State<PokemonList> createState() => _PokemonListState();
 }
@@ -48,34 +48,11 @@ class _PokemonListState extends State<PokemonList> {
                               },
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    RequestPokemon().getPokemons(snapshot.data!["previous"]);
-                                    print(snapshot.data!["previous"]);
-                                  });
-                                },
-                                icon: const Icon(Icons.arrow_back_ios),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    RequestPokemon().getPokemons(snapshot.data!["next"]);
-                                  });
-                                },
-                                icon: const Icon(Icons.arrow_forward_ios),
-                              ),
-                            ],
-
-                          ),
                         ],
                       );
               }
               else{
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
             }
     );

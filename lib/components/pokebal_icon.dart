@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class PokeballIcon extends StatelessWidget {
+  const PokeballIcon({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Transform.rotate(

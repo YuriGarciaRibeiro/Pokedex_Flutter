@@ -6,9 +6,11 @@ import 'screens/pokemon_screen.dart';
 import 'utils/routes/routes.dart';
 import 'screens/pokedex_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -59,8 +61,8 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        ROUTES.HOME: (ctx) => PokedexScreen(),
-        ROUTES.POKEMON_SCREEN: (ctx) => PokemonScreen(),
+        ROUTES.HOME: (ctx) => const PokedexScreen(),
+        ROUTES.POKEMON_SCREEN: (ctx) => const PokemonScreen(),
       },
     );
   }

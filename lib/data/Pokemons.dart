@@ -340,5 +340,5 @@ var POKEMONS_DATA = [
       generation: " 1",
       legendary: true,
       image: 'https://i.imgur.com/CRXY9cf.png',
-      color: Color.fromARGB(255, 230, 188, 98)),
+      color: const Color.fromARGB(255, 230, 188, 98)),
 ];
