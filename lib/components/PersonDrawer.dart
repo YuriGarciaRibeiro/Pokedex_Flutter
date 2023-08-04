@@ -42,16 +42,16 @@ class PersonDrawer extends StatelessWidget {
             },
 
           ),
-          ListTile(
+          const ListTile(
             title: Text('Items'),
             subtitle: Text('Coming soon'),
 
           ),
-          ListTile(
+          const ListTile(
             title: Text('Moves'),
             subtitle: Text('Coming soon'),
           ),
-          ListTile(
+          const ListTile(
             title: Text('Berries'),
             subtitle: Text('Coming soon'),
           ),

@@ -1,6 +1,6 @@
 {
-    "name": "pokedex",
-    "short_name": "pokedex",
+    "name": "teste",
+    "short_name": "teste",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
