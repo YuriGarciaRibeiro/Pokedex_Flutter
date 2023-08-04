@@ -42,7 +42,6 @@ class _PokemonScreenState extends State<PokemonScreen> {
                 ],
               ),
             ),
-            drawer: const PersonDrawer(),
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: SingleChildScrollView(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_list.dart';
 
 import '../components/PersonDrawer.dart';
+import '../components/filter_button.dart';
 import '../components/pokebal_icon.dart';
 
 class PokedexScreen extends StatelessWidget {
@@ -16,14 +17,9 @@ class PokedexScreen extends StatelessWidget {
           'Pokedex',
         ),
         centerTitle: true,
-
       ),
       body: const PokemonList(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        child: const PokeballIcon(),
-      ),
+      floatingActionButton: FilterButtom(),
     );
   }
 }

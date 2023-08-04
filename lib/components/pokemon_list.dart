@@ -20,7 +20,6 @@ class _PokemonListState extends State<PokemonList> {
   void initState() {
     super.initState();
     request = RequestPokemon().getPokemons(RequestPokemon().baseUrl);
-    print(RequestPokemon().baseUrl);
   }
 
   @override

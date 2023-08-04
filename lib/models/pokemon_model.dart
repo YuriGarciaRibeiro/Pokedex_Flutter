@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_init_to_null
 
-import 'package:flutter/material.dart';
+
 
 class Pokemon {
   int id;
@@ -15,8 +15,6 @@ class Pokemon {
   int spDefense;
   int speed;
   String generation;
-  bool legendary;
-  Color color;
   String image;
 
 
@@ -34,8 +32,24 @@ class Pokemon {
      this.spDefense = 0,
      this.speed = 0,
      this.generation = '',
-     this.legendary = false,
-     this.color = Colors.white,
      this.image = '',
   });
+
+  static Pokemon fromJson(Map map) {
+    return Pokemon(
+      id: map['id'],
+      name: map['name'],
+      type: map['type'],
+      type2: map['type2'],
+      total: map['total'],
+      hp: map['hp'],
+      attack: map['attack'],
+      defense: map['defense'],
+      spAttack: map['spAttack'],
+      spDefense: map['spDefense'],
+      speed: map['speed'],
+      generation: map['generation'],
+      image: map['image'],
+    );
+  }
 }

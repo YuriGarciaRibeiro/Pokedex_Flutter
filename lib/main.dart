@@ -34,14 +34,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Pokedex',
       theme: ThemeData(
-
         appBarTheme: const AppBarTheme(
-            
             titleTextStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontFamily: "RobotoCondensed",
-            )),
+          color: Colors.white,
+          fontSize: 20,
+          fontFamily: "RobotoCondensed",
+        )),
         primarySwatch: Colors.red,
         fontFamily: "Rale-way",
         textTheme: ThemeData.light().textTheme.copyWith(
