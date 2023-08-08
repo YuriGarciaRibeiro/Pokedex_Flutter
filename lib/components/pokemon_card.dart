@@ -3,10 +3,14 @@ import 'package:pokedex/Funcs/icons_picker.dart';
 import 'package:pokedex/utils/routes/routes.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:pokedex/Control/RequestPokemon.dart';
-import 'package:pokedex/components/pokebal_icon.dart';
 import 'package:pokedex/Funcs/get_color.dart';
 
-import '../models/pokemon_model.dart';
+String capitalize(String text) {
+            if (text.isEmpty) {
+              return text;
+            }
+            return text[0].toUpperCase() + text.substring(1);
+          }
 
 class PokemonCard extends StatefulWidget {
   final int index;
@@ -30,7 +34,6 @@ class _PokemonCardState extends State<PokemonCard> {
   void initState() {
     super.initState();
     request = RequestPokemon().getPokemonByNunber(widget.index + 1);
-
   }
 
   @override
@@ -40,52 +43,57 @@ class _PokemonCardState extends State<PokemonCard> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return InkWell(
-              onTap: () => _selectPokemon(context),
-              borderRadius: BorderRadius.circular(10),
-              splashColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              child: Card(
-                        elevation: 5,
-                        color: getTypeColor(snapshot.data!["types"][0]["type"]["name"]),
-                        child: GridTile(
-                          footer: GridTileBar(
-                            backgroundColor: Colors.black54,
-                            title: AutoSizeText(
-                              snapshot.data!["name"].toString(),
-                              maxLines: 1,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 1,
-                                fontFamily: "RobotoCondensed",
-                              ),
-                            ),
-                            subtitle: AutoSizeText(
-                              snapshot.data!["types"].length > 1
-                                  ? "${snapshot.data!["types"][0]["type"]["name"]} | ${snapshot.data!["types"][1]["type"]["name"]}"
-                                  : snapshot.data!["types"][0]["type"]["name"]
-                                  .toString(),
-                              maxLines: 1,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontFamily: "RobotoCondensed",
-                              ),
-                            ),
-                            trailing:  Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: getIcon(snapshot.data!["types"][0]["type"]["name"]),
-                            ),
-                          ),
-                          child: Image.network(
-                            snapshot.data!["sprites"]["other"]["official-artwork"]
-                            ["front_default"]
-                                .toString(),
-                          ),
+                onTap: () => _selectPokemon(context),
+                borderRadius: BorderRadius.circular(10),
+                splashColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                child: Card(
+                  elevation: 5,
+                  color:
+                      getTypeColor(snapshot.data!["types"][0]["type"]["name"]),
+                  child: GridTile(
+                    footer: GridTileBar(
+                      backgroundColor: Colors.black54,
+                      title: AutoSizeText(
+                        capitalize(snapshot.data!["name"].toString()),
+                        maxLines: 1,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 1,
+                          fontFamily: "RobotoCondensed",
                         ),
-                       ));
-                } else {
-            return const CircularProgressIndicator();
-          } 
+                      ),
+                      subtitle: AutoSizeText(
+                        snapshot.data!["types"].length > 1
+                            ? "${capitalize(snapshot.data!["types"][0]["type"]["name"])} | ${capitalize(snapshot.data!["types"][1]["type"]["name"])}"
+                            : capitalize(snapshot.data!["types"][0]["type"]["name"])
+                                .toString(),
+                        maxLines: 1,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: "RobotoCondensed",
+                        ),
+                      ),
+                      trailing: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:
+                            getIcon(snapshot.data!["types"][0]["type"]["name"]),
+                      ),
+                    ),
+                    child: Image.network(
+                      snapshot.data!["sprites"]["other"]["official-artwork"]
+                              ["front_default"]
+                          .toString(),
+                    ),
+                  ),
+                ));
+          } else {
+            return const FittedBox(
+              fit: BoxFit.scaleDown,
+              child: CircularProgressIndicator(),
+            );
+          }
         });
   }
 }

@@ -25,6 +25,42 @@ class RequestPokemon{
 
     return body;
   }
+  
 
+  //função para pegar o pokemon pelo link
+  Future<Map<String, dynamic>> getPokemonByUrl(String url) async{
+    final response = await http.get(Uri.parse(url));
+    Map<String, dynamic> body = convert.jsonDecode(response.body);
+
+    return body;
+  }
+
+
+
+
+  //função para pegar todos os tipos de pokemons
+  Future<Map<String, dynamic>> getTypes() async{
+    final response = await http.get(Uri.parse('https://pokeapi.co/api/v2/type'));
+    Map<String, dynamic> body = convert.jsonDecode(response.body);
+
+    return body;
+  }
+
+
+  //funçao para pegar a especie do pokemon
+  Future<Map<String, dynamic>> getSpecies(String url) async{
+    final response = await http.get(Uri.parse(url));
+    Map<String, dynamic> body = convert.jsonDecode(response.body);
+
+    return body;
+  }
+
+
+  //função para pegar a cadeia evolutiva do pokemon
+  Future<Map<String, dynamic>> getEvolutionChain(String url) async{
+    final response = await http.get(Uri.parse(url));
+    Map<String, dynamic> body = convert.jsonDecode(response.body);
+    return body;
+  }
 
 }

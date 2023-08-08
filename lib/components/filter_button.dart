@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../Control/RequestPokemon.dart';
+import 'row_types.dart';
+
 class FilterButtom extends StatefulWidget {
   const FilterButtom({Key? key}) : super(key: key);
 
@@ -8,7 +11,14 @@ class FilterButtom extends StatefulWidget {
 }
 
 class _FilterButtomState extends State<FilterButtom> {
-  String dropdownValue = "name";
+  String dropdownValue = 'normal';
+  late Future<Map> request;
+
+  @override
+  void initState() {
+    super.initState();
+    request = RequestPokemon().getTypes();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,29 +37,7 @@ class _FilterButtomState extends State<FilterButtom> {
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Column(
                   children: [
-                    DropdownButton(
-                      value: dropdownValue,
-                      items: const [
-                        DropdownMenuItem(
-                          value: "name",
-                          child: Text("Name"),
-                        ),
-                        DropdownMenuItem(
-                          value: "number",
-                          child: Text("Number"),
-                        ),
-                        DropdownMenuItem(
-                          value: "type",
-                          child: Text("Type"),
-                        ),
-                      ],
-                      onChanged: (String? value) {
-                        setState(() {
-                          print(value);
-                          dropdownValue = value!;
-                        });
-                      },
-                    ),
+                    Row_types(request: request, dropdownValue: dropdownValue),
                     ElevatedButton(
                       child: const Text("Close"),
                       onPressed: () {
@@ -65,4 +53,6 @@ class _FilterButtomState extends State<FilterButtom> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         child: const Icon(Icons.filter_alt_outlined));
   }
+
+  
 }

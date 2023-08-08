@@ -3,7 +3,6 @@ import 'package:pokedex/components/pokemon_list.dart';
 
 import '../components/PersonDrawer.dart';
 import '../components/filter_button.dart';
-import '../components/pokebal_icon.dart';
 
 class PokedexScreen extends StatelessWidget {
   const PokedexScreen({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class PokedexScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: const PokemonList(),
-      floatingActionButton: FilterButtom(),
+      floatingActionButton: const FilterButtom(),
     );
   }
 }

@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_card.dart';
 import 'package:pokedex/Control/RequestPokemon.dart';
 
+
+
+
+
+
+
+
+
 class PokemonList extends StatefulWidget {
   const PokemonList({Key? key}) : super(key: key);
 
@@ -51,7 +59,7 @@ class _PokemonListState extends State<PokemonList> {
                       );
               }
               else{
-                return const Center(child: CircularProgressIndicator());
+                return const SizedBox(child: Center(child: CircularProgressIndicator()),);
               }
             }
     );
